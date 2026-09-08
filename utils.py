@@ -1,55 +1,78 @@
 import datetime
 
 def add_transaction(transactions, type):
+    # Handle an income transaction
     if type == "income":
         income_source = input("What is your income source? ")
         description = input("What is the description? ")
         amount = float(input("Enter amount: "))
         date = datetime.date.today().isoformat()
 
+        # Store the income details in a dictionary
         income = {
-            "type":type, 
-            "income_source":income_source,
-            "description":description, 
-            "amount": amount, 
-            "date":date
-                }
+            "type": type,
+            "income_source": income_source,
+            "description": description,
+            "amount": amount,
+            "date": date
+        }
+
+        # Add the new transaction dictionary to the transactions list
         transactions.append(income)
         print("Income transaction added successfully.")
+
+    # Handle an expense transaction
     elif type == "expense":
         expense_category = input("What is the expense category? ")
         description = input("What is the description? ")
         amount = float(input("Enter amount: "))
         date = datetime.date.today().isoformat()
 
+        # Store the expense details in a dictionary
         expense = {
-            "type":type, 
-            "expense_category":expense_category,
-            "description":description, 
-            "amount": amount, 
-            "date":date
+            "type": type,
+            "expense_category": expense_category,
+            "description": description,
+            "amount": amount,
+            "date": date
         }
+
+        # Add the new transaction dictionary to the transactions list
         transactions.append(expense)
         print("Expense transaction added successfully.")
+
+    # Handle an unexpected transaction type
     else:
         print("Invalid transaction type!")
 
+
 def view_all(transactions):
+    # Check whether there are any transactions to display
     if not transactions:
-        print("The transactions list is empty.") 
+        print("The transactions list is empty.")
         return
 
+    # Display the column headings once before displaying the transactions
     print(f"{'Type':<10} {'Source/Category':<20} {'Description':<20} {'Amount':>12} {'Date':<12}")
+
+    # Loop through every transaction in the list
     for transaction in transactions:
+
+        # Get the appropriate source/category depending on the transaction type
         if transaction["type"] == "income":
             source_or_category = transaction["income_source"]
         elif transaction["type"] == "expense":
             source_or_category = transaction["expense_category"]
         else:
+            # Skip a transaction if it has an unexpected type
             print("Invalid transaction")
             continue
 
+        # Display the details of the current transaction
+        # Amount is right-aligned, comma-separated, and shown to 2 decimal places
         print(f'{transaction["type"]:<10} {source_or_category:<20} {transaction["description"]:<20} {transaction["amount"]:>12,.2f} {transaction["date"]:<12}')
+
+
 def get_summary(transactions):
   total_expense = 0
   total_income = 250000.00
