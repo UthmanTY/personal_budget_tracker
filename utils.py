@@ -1,6 +1,7 @@
 
 def get_summary(transactions):
   total_expense = 0
+  total_income = 250000.00
   #amount = transactions.get("amount")
   #iterate through the list of expenses
   for data in transactions:
