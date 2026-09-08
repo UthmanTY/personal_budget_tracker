@@ -10,27 +10,6 @@ def get_summary(transactions):
       if isinstance(amount, float) and not isinstance(amount, str):
         total_expense += amount
         #print(f"Total amount: {total_expense}")
-        return total_expense
-
-  
-# text = get_summary([{
-#     "type": "expense",       # or "income"
-#     "category": "Food",
-#     "description": "Lunch at work",
-#     "amount": 1500.00,       # in your local currency
-#     "date": "2024-01-15"     # added later using datetime module
-# },{
-#     "type": "expense",       # or "income"
-#     "category": "Food",
-#     "description": "Lunch at work",
-#     "amount": 2500.00,       # in your local currency
-#     "date": "2024-01-15"     # added later using datetime module
-# },{
-#     "type": "expense",       # or "income"
-#     "category": "Food",
-#     "description": "Lunch at work",
-#     "amount": 100.00,       # in your local currency
-#     "date": "2024-01-15"     # added later using datetime module
-# }])
-
-
+    net_balance = total_income - total_expense
+    #print(net_total)
+    return net_balance
