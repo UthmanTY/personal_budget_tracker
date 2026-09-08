@@ -16,3 +16,35 @@ def get_summary(transactions):
     net_balance = total_income - total_expense
     #print(net_total)
     return net_balance
+
+
+def view_by_category(transactions):
+ 
+
+    categories = {}
+
+    for t in transactions:
+        if t["type"] == "expense":
+            category = t["category"]
+            amount = t["amount"]
+            categories[category] = categories.get(category, 0) + amount
+
+
+    if not categories:
+        print("\nNo expense records found.")
+        return
+
+    # Compute total expenses across all categories
+    total_expenses = sum(categories.values())
+
+    # Print formatted results
+    print("\n📁 SPENDING BY CATEGORY")
+    print("--------------------------")
+    
+    for category, amount in categories.items():
+        # Calculate percentage share
+        percentage = (amount / total_expenses) * 100 if total_expenses > 0 else 0
+        
+        # Print with aligned formatting and currency symbol
+        print(f"{category:<15} ₦ {amount:>10,.2f}  ({percentage:>5.1f}%)")
+
