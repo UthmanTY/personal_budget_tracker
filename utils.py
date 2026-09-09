@@ -31,7 +31,7 @@ def add_transaction(transactions, type):
         # Store the expense details in a dictionary
         expense = {
             "type": type,
-            "expense_category": expense_category,
+            "category": expense_category,
             "description": description,
             "amount": amount,
             "date": date
@@ -89,7 +89,7 @@ def get_summary(transactions):
     #calculate net balance remaining by deducting total_expense from total_income
     net_balance = total_income - total_expense
     #print(net_total)
-    return net_balance
+    print(net_balance)
 
 
 def view_by_category(transactions):
