@@ -74,18 +74,14 @@ def view_all(transactions):
 
 
 def get_summary(transactions):
+  #iterate through the list and increment amount if type  == expense
   total_expense = sum(t["amount"] for t in transactions if t["type"] == "expense")
+  #iterate through the list and increment if type  == income
   total_income = sum(t["amount"] for t in transactions if t["type"] == "income")
-#   amount = transactions.get("amount")
-  #iterate through the list of expenses
-    #iterate through each dictionary of expenses to get amount of each expense
 
-      #if the value of the amount is a number, add it to total expense
-        #print(f"Total amount: {total_expense}")
-        #return total_expense
-    #calculate net balance remaining by deducting total_expense from total_income
+  #calculate net balance remaining by deducting total_expense from total_income
   net_balance = total_income - total_expense
-    #print(net_balance)
+  #print financial summary
   print("\n📊 FINANCIAL SUMMARY")
   print("--------------------------")
   print(f"{'Total Income:':<20} {total_income:>10}")
