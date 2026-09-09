@@ -76,7 +76,7 @@ def view_all(transactions):
 def get_summary(transactions):
   #iterate through the list and increment amount if type  == expense
   total_expense = sum(t["amount"] for t in transactions if t["type"] == "expense")
-  #iterate through the list and increment if type  == income
+  #iterate through the list and increment amount if type  == income
   total_income = sum(t["amount"] for t in transactions if t["type"] == "income")
 
   #calculate net balance remaining by deducting total_expense from total_income
