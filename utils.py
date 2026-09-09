@@ -88,8 +88,12 @@ def get_summary(transactions):
         #return total_expense
     #calculate net balance remaining by deducting total_expense from total_income
     net_balance = total_income - total_expense
-    #print(net_total)
-    print(net_balance)
+    #print(net_balance)
+    print("\n📊 FINANCIAL SUMMARY")
+    print("--------------------------")
+    print(f"{'Total Income:':<20} {total_income:>10}")
+    print(f"{'Total Expenses:':<20} {total_expense:>10}")
+    print(f"{'Net Balance:':<20} {net_balance:>10}")
 
 
 def view_by_category(transactions):
