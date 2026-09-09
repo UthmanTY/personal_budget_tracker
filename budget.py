@@ -1,9 +1,6 @@
-import sys
 from utils import add_transaction, view_all, get_summary, view_by_category
 
 transactions = []
-type1 = str.lower("income")
-type2 = str.lower("expense")
 
 while True:
     print("==== BUDGET TRACKER ====")
@@ -12,9 +9,9 @@ while True:
     user_input = input("> ")
 
     if user_input == "1":
-        add_transaction(transactions, type1)
+        add_transaction(transactions, "income")
     elif user_input == "2":
-        add_transaction(transactions, type2)
+        add_transaction(transactions, "expense")
     elif user_input == "3":
         view_all(transactions)
     elif user_input == "4":
@@ -22,7 +19,6 @@ while True:
     elif user_input == "5":
         view_by_category(transactions)
     elif user_input == "6":
-        sys.exit()
+        break
     else:
         print("Please enter a valid number from the provided options")
-        continue
